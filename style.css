@@ -176,12 +176,38 @@ input:focus, select:focus { outline: none; border-color: var(--gold); }
 }
 .class-card .mini span { white-space: nowrap; }
 .class-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-bottom: 1.25rem; }
 .init {
-  width: 100%;
-  margin-bottom: 1.25rem;
+  display: flex; flex-direction: column; align-items: center;
   padding: .8rem;
   background: var(--panel); border: 2px solid var(--gold); border-radius: .9rem;
   color: var(--gold); font-weight: 700;
   cursor: pointer;
 }
 .init small { color: var(--muted); font-weight: 400; }
+
+/* --- Necromante --- */
+
+.enemy .portrait { border-color: #8f6bd6; }
+.enemy h1 { color: #b89cf0; }
+.enemy .hp { margin: .75rem 0; }
+.enemy .hp small { display: block; font-weight: 400; font-size: .75rem; color: var(--muted); }
+.hpbar { height: .8rem; margin-top: 1.25rem; background: var(--panel); border: 2px solid var(--line); border-radius: 1rem; overflow: hidden; }
+#hp-fill { height: 100%; background: linear-gradient(90deg, var(--red), #8f6bd6); transition: width .3s; }
+.dmg-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: .4rem; }
+.dmg-row button {
+  padding: .7rem 0;
+  background: var(--panel); border: 2px solid var(--line); border-radius: .7rem;
+  font-weight: 700; color: var(--red);
+  cursor: pointer;
+}
+.enemy-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.enemy-actions button {
+  display: flex; flex-direction: column; gap: .25rem;
+  padding: .8rem;
+  text-align: left;
+  background: var(--panel); border: 2px solid #8f6bd6; border-radius: 1rem;
+  cursor: pointer;
+}
+.enemy-actions small { font-size: .78rem; line-height: 1.25; }
+.enemy-actions button:disabled { opacity: .35; cursor: default; }

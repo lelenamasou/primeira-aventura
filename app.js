@@ -108,6 +108,9 @@ $('#stat-buttons').addEventListener('click', (e) => {
 $('#init-btn').addEventListener('click', () => {
   if (!rolling) animate('Iniciativa', roll(char.stats.dex));
 });
+$('#dmg-btn').addEventListener('click', () => {
+  if (!rolling) animate('Dano no inimigo', roll(0));
+});
 
 $('#hp-minus').addEventListener('click', () => { char.hp = Math.max(0, char.hp - 1); renderLive(); });
 $('#hp-plus').addEventListener('click', () => { char.hp = Math.min(char.hpMax, char.hp + 1); renderLive(); });

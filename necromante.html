@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1410">
+  <meta name="robots" content="noindex">
+  <title>Necromante</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="necromante.js"></script>
+</head>
+<body>
+  <main class="enemy">
+    <header class="sheet-head">
+      <div class="portrait" aria-hidden="true">💀</div>
+      <div>
+        <h1>O Necromante</h1>
+        <p class="sub">Defesa 6 · Dano dos heróis: 1d6</p>
+      </div>
+    </header>
+    <p class="past">“Ele veste um manto feito de sombras e carrega um cajado com um crânio que sussurra. O ar fica gelado quando ele sorri.”</p>
+
+    <div class="hpbar"><div id="hp-fill"></div></div>
+    <div class="hp">
+      <span class="label">Vida</span>
+      <button type="button" data-hp="-1" aria-label="Tirar 1 de vida">−</button>
+      <output id="hp-value"></output>
+      <button type="button" data-hp="1" aria-label="Devolver 1 de vida">+</button>
+    </div>
+    <p class="hint">Dano rolado pelos heróis:</p>
+    <div class="dmg-row">
+      <button type="button" data-hp="-1">−1</button><button type="button" data-hp="-2">−2</button><button type="button" data-hp="-3">−3</button>
+      <button type="button" data-hp="-4">−4</button><button type="button" data-hp="-5">−5</button><button type="button" data-hp="-6">−6</button>
+    </div>
+
+    <div class="hp">
+      <span class="label">💀 Esqueletos <small>(qualquer acerto destrói um)</small></span>
+      <button type="button" data-skel="-1" aria-label="Destruir esqueleto">−</button>
+      <output id="skel-value"></output>
+      <button type="button" data-skel="1" aria-label="Adicionar esqueleto">+</button>
+    </div>
+
+    <div id="result" class="result" aria-live="polite">
+      <span class="placeholder">Escolha a ação do Necromante 👇</span>
+    </div>
+
+    <div class="enemy-actions">
+      <button type="button" data-action="toque"><strong>Toque Sombrio</strong><small>Um herói rola DES (6+) ou perde 3 PV</small></button>
+      <button type="button" data-action="erguer"><strong>Erguer Mortos</strong><small>Surgem 2 esqueletos</small></button>
+      <button type="button" data-action="medo"><strong>Onda de Medo</strong><small>1x · todos rolam CON (5+) ou perdem a vez</small></button>
+      <button type="button" data-action="drenar"><strong>Drenar Vida</strong><small>1x · abaixo da metade · recupera 1d6</small></button>
+    </div>
+
+    <div class="reset">
+      <button type="button" id="reset-ask" class="link">Reiniciar luta</button>
+      <span id="reset-confirm" hidden>
+        Reiniciar a luta?
+        <button type="button" id="reset-yes" class="link danger">Sim</button>
+        <button type="button" id="reset-no" class="link">Não</button>
+      </span>
+    </div>
+  </main>
+</body>
+</html>
