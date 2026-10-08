@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1410">
+  <title>Primeira Aventura</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <section id="create" hidden>
+      <h1>Primeira Aventura</h1>
+      <p class="lead">Crie seu personagem. Leva dois minutos.</p>
+      <form id="create-form">
+        <label class="field">
+          <span>1. Qual o nome do seu personagem?</span>
+          <input name="name" required maxlength="30" autocomplete="off" placeholder="Ex.: Kira, a Destemida">
+        </label>
+
+        <fieldset class="field">
+          <legend>2. Escolha sua classe</legend>
+          <div id="class-cards" class="class-cards"></div>
+        </fieldset>
+
+        <label class="field">
+          <span>3. O que você fazia antes de virar aventureiro?</span>
+          <select name="occupationId" id="occupation" required></select>
+        </label>
+
+        <label class="field">
+          <span>4. Algo sobre seu passado <small>(opcional)</small></span>
+          <input name="past" maxlength="80" autocomplete="off" placeholder="Ex.: Fugiu de casa para salvar o irmão">
+        </label>
+
+        <button class="primary" type="submit">Criar personagem</button>
+      </form>
+    </section>
+
+    <section id="sheet" hidden>
+      <header class="sheet-head">
+        <div id="portrait" class="portrait" aria-hidden="true"></div>
+        <div>
+          <h1 id="char-name"></h1>
+          <p id="char-sub" class="sub"></p>
+        </div>
+      </header>
+      <p id="char-past" class="past"></p>
+
+      <div class="hp">
+        <span class="label">Vida</span>
+        <button type="button" id="hp-minus" aria-label="Perder 1 ponto de vida">−</button>
+        <output id="hp-value"></output>
+        <button type="button" id="hp-plus" aria-label="Recuperar 1 ponto de vida">+</button>
+      </div>
+
+      <button type="button" id="init-btn" class="init">⚡ Rolar iniciativa <small>(1d6 + DES)</small></button>
+
+      <p class="hint">Toque em um atributo para rolar o dado.</p>
+      <div id="stat-buttons" class="stats"></div>
+
+      <div id="result" class="result" aria-live="polite">
+        <span class="placeholder">Seu resultado aparece aqui 🎲</span>
+      </div>
+
+      <div class="ability">
+        <div>
+          <strong id="ability-name"></strong>
+          <p id="ability-desc"></p>
+        </div>
+        <button type="button" id="ability-btn"></button>
+      </div>
+
+      <div class="reset">
+        <button type="button" id="reset-ask" class="link">Novo personagem</button>
+        <span id="reset-confirm" hidden>
+          Apagar <strong id="reset-name"></strong>?
+          <button type="button" id="reset-yes" class="link danger">Sim, apagar</button>
+          <button type="button" id="reset-no" class="link">Não</button>
+        </span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
